@@ -35,7 +35,6 @@ namespace BrowsingTimeManagament
                         {
                             break;
                         }
-
                     }
                 }
             }
@@ -43,7 +42,6 @@ namespace BrowsingTimeManagament
             {
                 throw e;
             }
-            //Console.ReadLine();
         }
         /// <summary>
         /// 
