@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GIT\\BrowsingTimeManagament\\BrowsingTimeManagament.csproj",
+      "projectUniqueName": "C:\\GIT\\BrowseTimeManage\\BrowsingTimeManagament.csproj",
       "projectName": "BrowsingTimeManagament",
-      "projectPath": "C:\\GIT\\BrowsingTimeManagament\\BrowsingTimeManagament.csproj",
+      "projectPath": "C:\\GIT\\BrowseTimeManage\\BrowsingTimeManagament.csproj",
       "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
-      "outputPath": "C:\\GIT\\BrowsingTimeManagament\\obj\\",
+      "outputPath": "C:\\GIT\\BrowseTimeManage\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thinh\\AppData\\Roaming\\NuGet\\NuGet.Config",

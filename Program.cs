@@ -7,6 +7,8 @@ namespace BrowsingTimeManagament
 {
     class Program
     {
+        private const string TITLE_NETFLIX = "Netflix";
+        private const string TITLE_YOUTUBE = "YouTube";
         static void Main(string[] args)
         {
             DateTime currentTime = DateTime.Now;
@@ -14,7 +16,7 @@ namespace BrowsingTimeManagament
             try
             {
                 Process[] processlist = Process.GetProcesses();
-                
+
                 foreach (Process process in processlist)
                 {
                     string processName = process.ProcessName;
@@ -27,15 +29,13 @@ namespace BrowsingTimeManagament
                         Console.WriteLine("Process Started Time : " + process.StartTime.ToString());
                         Console.WriteLine("Browsing Time :" + browsingTime + "minutes");
                         float floatBrowsingTime = float.Parse(browsingTime);
-                        if (process.MainWindowTitle.Contains("Netflix") & floatBrowsingTime > 60)
+                        Boolean checkResult = checkWindowTitle(process, TITLE_NETFLIX, floatBrowsingTime);
+                        Boolean checkResult2 = checkWindowTitle(process, TITLE_YOUTUBE, floatBrowsingTime);
+                        if (checkResult == true | checkResult2 == true)
                         {
-                            Console.WriteLine("Please take a break");
-                            Process photoViewer = new Process();
-                            photoViewer.StartInfo.FileName = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
-                            photoViewer.StartInfo.Arguments = @"C:\DATA\kyuukeichite.jpg";
-                            photoViewer.Start();
                             break;
                         }
+
                     }
                 }
             }
@@ -44,6 +44,25 @@ namespace BrowsingTimeManagament
                 throw e;
             }
             //Console.ReadLine();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="process"></param>
+        /// <param name="title"></param>
+        /// <param name="floatBrowsingTime"></param>
+        private static Boolean checkWindowTitle(Process process, string title, float floatBrowsingTime)
+        {
+            if (process.MainWindowTitle.Contains(title) & floatBrowsingTime > 60)
+            {
+                Console.WriteLine("Please take a break");
+                Process photoViewer = new Process();
+                photoViewer.StartInfo.FileName = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                photoViewer.StartInfo.Arguments = @"C:\DATA\kyuukeichite.jpg";
+                photoViewer.Start();
+                return true;
+            }
+            return false;
         }
     }
 }
